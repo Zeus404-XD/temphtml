@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Convertor</title>
+    <link href="url convertor.css" rel="stylesheet">
+    <style>
+        .main_frame{
+            background-image: url(https://images.unsplash.com/photo-1432847712612-926caafaa802?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=100);
+            position:relative;
+            background-repeat: no-repeat;
+            min-height: 850px;
+            background-size: cover;
+            opacity: 0.9;
+        }
+        .txt_1{
+            top: 40%;
+            width: 100%;
+            text-align: center;
+            position:absolute;
+            padding: 1%;
+        }
+        .border{
+            font-size: 33px;
+        }
+        .lable_url{
+            color: white;
+            background-color: #000000;
+            padding: 10px;
+            text-transform: capitalize;
+            font-size: 22px;
+        }
+        .input_box{
+            padding: 10px;
+            height: 25px;
+            width: 250px;
+            border: 0px;
+            border-bottom: 2px solid #9e9e9e;
+        }
+        ::placeholder{
+            color: #9e9e9e;
+            font-size: larger;
+        }
+        .con_btn{
+            padding: 1%;
+            width: 87px;
+            font-size: 17px;
+            background-color: black;
+            color: white;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_frame">
+        <div class="txt_1">
+            <div class="border">Welcome MFs</div><br>
+            <label for="url" class="lable_url">url:</label>
+            <input class="input_box" type="text" id="url" placeholder="here">
+            <button class="con_btn" onclick="convert()" id="con_btn" type="button">convert</button>
+        </div>
+    </div>
+    <script>
+        function convert(){
+            let old_url = document.getElementById('url').value;
+            var new_url = old_url.replaceAll("[","%5B");
+            var final_url = new_url.replaceAll("]","%5D");
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy)
+            dummy.value = final_url;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            alert("text copied to clipboard:"+final_url)
+        }
+    </script>
+</body>
+</html>
