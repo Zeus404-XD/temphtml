@@ -50,6 +50,7 @@
             background-color: black;
             color: white;
             text-transform: capitalize;
+            text-align: center;
         }
     </style>
 </head>
@@ -72,8 +73,7 @@
             dummy.value = final_url;
             dummy.select();
             document.execCommand("copy");
-            document.body.removeChild(dummy);
-            alert("text copied to clipboard:"+final_url)
+            document.body.removeChild(dummy)   
         }
     </script>
 </body>
